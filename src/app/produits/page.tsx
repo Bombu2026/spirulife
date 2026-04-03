@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Nos Produits — Spirulife",
@@ -14,6 +15,7 @@ type Product = {
   quantity: string;
   price: string;
   description: string;
+  benefits: string[];
 };
 
 const products: Product[] = [
@@ -23,7 +25,8 @@ const products: Product[] = [
     format: "Canette",
     quantity: "330 ml",
     price: "2,90€ (unité) / 27€ (x12)",
-    description: "Boisson ready-to-drink énergisante à la spiruline",
+    description: "Boisson à la spiruline et caféine naturelle (guarana).",
+    benefits: ["Contribue à réduire la fatigue (vitamines B)", "Améliore la vigilance (caféine)", "Source d'antioxydants (phycocyanine)"],
   },
   {
     image: "/images/SPIRUSHOT.jpg",
@@ -31,7 +34,8 @@ const products: Product[] = [
     format: "Mini-bouteille",
     quantity: "60 ml",
     price: "2,90€ (unité) / 17,90€ (x7)",
-    description: "Shot concentré de spiruline pour un boost express",
+    description: "Shot concentré spiruline + gingembre + citron.",
+    benefits: ["Effet tonique rapide", "Soutien immunitaire (vitamine C)", "Propriétés anti-inflammatoires naturelles"],
   },
   {
     image: "/images/SPIRUGUMMIES.jpg",
@@ -39,7 +43,8 @@ const products: Product[] = [
     format: "Pot (60 gummies)",
     quantity: "~150 g",
     price: "24,90€",
-    description: "Gummies clean à la spiruline, saveur naturelle",
+    description: "Gummies à base de spiruline.",
+    benefits: ["Source de fer — aide à réduire la fatigue", "Riche en protéines végétales", "Apport en micronutriments essentiels"],
   },
   {
     image: "/images/SPIRUSTICKS.jpg",
@@ -47,7 +52,8 @@ const products: Product[] = [
     format: "Boîte (20 sticks)",
     quantity: "~100 g (5 g / stick)",
     price: "19,90€",
-    description: "Sticks à diluer pour une dose quotidienne pratique",
+    description: "Poudre de spiruline à diluer.",
+    benefits: ["Apport énergétique naturel", "Favorise l'hydratation + nutriments", "Contient des vitamines B essentielles"],
   },
   {
     image: "/images/SPIRURAW.jpg",
@@ -55,7 +61,8 @@ const products: Product[] = [
     format: "Sachet / doypack",
     quantity: "200 g",
     price: "19,90€",
-    description: "Poudre de spiruline pure pour smoothies et recettes",
+    description: "Spiruline pure 100%.",
+    benefits: ["~60–70% de protéines", "Riche en fer hautement assimilable", "Contient phycocyanine (antioxydant puissant)"],
   },
   {
     image: "/images/SPIRUCAPS.jpg",
@@ -63,7 +70,8 @@ const products: Product[] = [
     format: "Flacon (120 gélules)",
     quantity: "~60 g (500 mg / gélule)",
     price: "21,90€",
-    description: "Gélules de spiruline pour une prise simple et précise",
+    description: "Gélules de spiruline concentrée.",
+    benefits: ["Dosage précis", "Contribue à réduire la fatigue (fer)", "Soutien des défenses naturelles"],
   },
 ];
 
@@ -114,6 +122,14 @@ export default function ProduitsPage() {
                   <p className="mt-1 text-sm text-slate-600">
                     {product.description}
                   </p>
+                  <ul className="mt-3 space-y-1.5">
+                    {product.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-xs text-gray-500">
+                        <Check size={14} className="mt-0.5 shrink-0 text-teal-500" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
 
                   {/* Price + CTA */}
                   <div className="mt-auto pt-6 flex items-center justify-between gap-4">

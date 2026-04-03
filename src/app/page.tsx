@@ -6,12 +6,54 @@ import { LifestyleGallery } from "@/components/lifestyle-gallery";
 import { NewsletterForm } from "@/components/newsletter-form";
 
 const products = [
-  { image: "/images/SPIRUENERGY.jpg", name: "SPIRU ENERGY", price: "2,90€", format: "Canette 330 ml", description: "Boisson énergisante à la spiruline" },
-  { image: "/images/SPIRUSHOT.jpg", name: "SPIRU SHOT", price: "2,90€", format: "Mini-bouteille 60 ml", description: "Shot concentré boost express" },
-  { image: "/images/SPIRUGUMMIES.jpg", name: "SPIRU GUMMIES", price: "24,90€", format: "Pot 60 gummies", description: "Gummies clean saveur naturelle" },
-  { image: "/images/SPIRUSTICKS.jpg", name: "SPIRU STICKS", price: "19,90€", format: "Boîte 20 sticks", description: "Sticks à diluer dose quotidienne" },
-  { image: "/images/SPIRURAW.jpg", name: "SPIRU RAW", price: "19,90€", format: "Sachet 200 g", description: "Poudre pure smoothies & recettes" },
-  { image: "/images/SPIRUCAPS.jpg", name: "SPIRU CAPS", price: "21,90€", format: "Flacon 120 gélules", description: "Gélules prise simple et précise" },
+  {
+    image: "/images/SPIRUENERGY.jpg",
+    name: "SPIRU ENERGY",
+    price: "2,90€",
+    format: "Canette 330 ml",
+    description: "Boisson à la spiruline et caféine naturelle (guarana).",
+    benefits: ["Contribue à réduire la fatigue (vitamines B)", "Améliore la vigilance (caféine)", "Source d'antioxydants (phycocyanine)"],
+  },
+  {
+    image: "/images/SPIRUSHOT.jpg",
+    name: "SPIRU SHOT",
+    price: "2,90€",
+    format: "Mini-bouteille 60 ml",
+    description: "Shot concentré spiruline + gingembre + citron.",
+    benefits: ["Effet tonique rapide", "Soutien immunitaire (vitamine C)", "Propriétés anti-inflammatoires naturelles"],
+  },
+  {
+    image: "/images/SPIRUGUMMIES.jpg",
+    name: "SPIRU GUMMIES",
+    price: "24,90€",
+    format: "Pot 60 gummies",
+    description: "Gummies à base de spiruline.",
+    benefits: ["Source de fer — aide à réduire la fatigue", "Riche en protéines végétales", "Apport en micronutriments essentiels"],
+  },
+  {
+    image: "/images/SPIRUSTICKS.jpg",
+    name: "SPIRU STICKS",
+    price: "19,90€",
+    format: "Boîte 20 sticks",
+    description: "Poudre de spiruline à diluer.",
+    benefits: ["Apport énergétique naturel", "Favorise l'hydratation + nutriments", "Contient des vitamines B essentielles"],
+  },
+  {
+    image: "/images/SPIRURAW.jpg",
+    name: "SPIRU RAW",
+    price: "19,90€",
+    format: "Sachet 200 g",
+    description: "Spiruline pure 100%.",
+    benefits: ["~60–70% de protéines", "Riche en fer hautement assimilable", "Contient phycocyanine (antioxydant puissant)"],
+  },
+  {
+    image: "/images/SPIRUCAPS.jpg",
+    name: "SPIRU CAPS",
+    price: "21,90€",
+    format: "Flacon 120 gélules",
+    description: "Gélules de spiruline concentrée.",
+    benefits: ["Dosage précis", "Contribue à réduire la fatigue (fer)", "Soutien des défenses naturelles"],
+  },
 ] as const;
 
 const blogPosts = [
@@ -117,7 +159,15 @@ export default function HomePage() {
                 <div className="p-6 border-t border-slate-100">
                   <h3 className="font-extrabold text-lg text-slate-900 uppercase tracking-wide">{product.name}</h3>
                   <p className="text-sm text-gray-500 mt-1">{product.format}</p>
-                  <p className="text-sm text-gray-600 mt-1">{product.description}</p>
+                  <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+                  <ul className="mt-3 space-y-1.5">
+                    {product.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-xs text-gray-500">
+                        <Check size={14} className="mt-0.5 shrink-0 text-teal-500" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="mt-5 flex items-center justify-between">
                     <span className="text-2xl font-extrabold text-teal-600">{product.price}</span>
                     <button
