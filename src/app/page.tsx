@@ -68,11 +68,11 @@ export default function HomePage() {
       {/* Section 1 — Hero */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <Image
-          src="/images/spiru1.png"
-          alt="Spiruline hero"
+          src="/images/hero-accueil.png"
+          alt="Gamme Spirulife — spiruline française"
           fill
           priority
-          className="object-cover brightness-[0.3]"
+          className="object-cover brightness-[0.4]"
         />
         <div className="relative z-10 w-full text-center text-white px-6 py-20">
           <div className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-medium mb-8">
