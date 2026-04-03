@@ -87,7 +87,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/produits"
-              className="rounded-full bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 font-semibold shadow-lg transition"
+              className="rounded-full bg-[#006D77] hover:bg-[#005660] text-white px-8 py-4 font-semibold shadow-lg transition"
             >
               Découvrir nos produits
             </Link>
@@ -172,7 +172,7 @@ export default function HomePage() {
                     <span className="text-2xl font-extrabold text-teal-600">{product.price}</span>
                     <button
                       type="button"
-                      className="bg-orange-500 text-white rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-orange-600 shadow-sm hover:shadow-md transition-all"
+                      className="bg-[#006D77] text-white rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-[#005660] shadow-sm hover:shadow-md transition-all"
                     >
                       Ajouter au panier
                     </button>

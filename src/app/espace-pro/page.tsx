@@ -87,7 +87,7 @@ export default function EspaceProPage() {
             <div className="mt-8">
               <Link
                 href="mailto:commercial@spirulife.fr"
-                className="inline-block bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-3 font-semibold shadow transition"
+                className="inline-block bg-[#006D77] hover:bg-[#005660] text-white rounded-full px-8 py-3 font-semibold shadow transition"
               >
                 Demander un devis
               </Link>

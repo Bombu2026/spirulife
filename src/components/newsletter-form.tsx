@@ -36,7 +36,7 @@ export function NewsletterForm() {
         />
         <button
           type="submit"
-          className="w-full sm:w-auto whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2.5 text-sm rounded-full sm:rounded-l-none sm:rounded-r-full transition-colors"
+          className="w-full sm:w-auto whitespace-nowrap bg-[#006D77] hover:bg-[#005660] text-white font-semibold px-6 py-2.5 text-sm rounded-full sm:rounded-l-none sm:rounded-r-full transition-colors"
         >
           Je m&apos;inscris
         </button>

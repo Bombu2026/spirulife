@@ -58,7 +58,7 @@ export default function EspaceParticulierPage() {
               </p>
               <button
                 type="button"
-                className="mt-8 bg-orange-500 text-white rounded-full w-full py-3 font-semibold hover:bg-orange-600 transition"
+                className="mt-8 bg-[#006D77] text-white rounded-full w-full py-3 font-semibold hover:bg-[#005660] transition"
               >
                 Créer mon compte
               </button>

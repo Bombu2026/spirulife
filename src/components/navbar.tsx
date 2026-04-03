@@ -73,13 +73,13 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/espace-pro"
-            className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
+            className="rounded-lg bg-[#006D77] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#005660]"
           >
             Espace Pro
           </Link>
           <Link
             href="/espace-particulier"
-            className="rounded-lg border border-orange-500 px-4 py-2 text-sm font-medium text-orange-500 transition-colors hover:bg-orange-50"
+            className="rounded-lg border border-[#006D77] px-4 py-2 text-sm font-medium text-[#006D77] transition-colors hover:bg-[#006D77]/10"
           >
             Espace Particulier
           </Link>
@@ -127,13 +127,13 @@ export function Navbar() {
           <div className="mt-4 flex flex-col gap-2">
             <Link
               href="/espace-pro"
-              className="w-full rounded-lg bg-orange-500 px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-orange-600"
+              className="w-full rounded-lg bg-[#006D77] px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-[#005660]"
             >
               Espace Pro
             </Link>
             <Link
               href="/espace-particulier"
-              className="w-full rounded-lg border border-orange-500 px-4 py-2.5 text-center text-sm font-medium text-orange-500 transition-colors hover:bg-orange-50"
+              className="w-full rounded-lg border border-[#006D77] px-4 py-2.5 text-center text-sm font-medium text-[#006D77] transition-colors hover:bg-[#006D77]/10"
             >
               Espace Particulier
             </Link>

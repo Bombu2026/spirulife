@@ -138,7 +138,7 @@ export default function ProduitsPage() {
                     </span>
                     <button
                       type="button"
-                      className="rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 hover:shadow-md transition-all"
+                      className="rounded-full bg-[#006D77] px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#005660] hover:shadow-md transition-all"
                     >
                       Ajouter au panier
                     </button>
