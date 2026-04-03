@@ -103,20 +103,20 @@ export default function HomePage() {
             {products.map((product) => (
               <div
                 key={product.name}
-                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm"
+                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-100"
               >
-                <div className="bg-teal-50 h-40 flex items-center justify-center">
-                  <span className="text-6xl">{product.emoji}</span>
+                <div className="bg-gradient-to-br from-teal-50 to-emerald-50 h-56 flex items-center justify-center relative">
+                  <span className="text-8xl drop-shadow-sm">{product.emoji}</span>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-lg text-slate-900">{product.name}</h3>
-                  <p className="text-sm text-gray-500">{product.format}</p>
-                  <p className="text-sm text-gray-600 mt-2">{product.description}</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xl font-bold text-teal-600">{product.price}</span>
+                <div className="p-6 border-t border-slate-100">
+                  <h3 className="font-extrabold text-lg text-slate-900 uppercase tracking-wide">{product.name}</h3>
+                  <p className="text-sm text-gray-500 mt-1">{product.format}</p>
+                  <p className="text-sm text-gray-600 mt-1">{product.description}</p>
+                  <div className="mt-5 flex items-center justify-between">
+                    <span className="text-2xl font-extrabold text-teal-600">{product.price}</span>
                     <button
                       type="button"
-                      className="bg-orange-500 text-white rounded-full px-5 py-2 text-sm hover:bg-orange-600 transition"
+                      className="bg-orange-500 text-white rounded-full px-6 py-2.5 text-sm font-semibold hover:bg-orange-600 shadow-sm hover:shadow-md transition-all"
                     >
                       Ajouter au panier
                     </button>

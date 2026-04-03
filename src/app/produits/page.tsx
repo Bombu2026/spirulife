@@ -68,66 +68,64 @@ const products: Product[] = [
 
 export default function ProduitsPage() {
   return (
-    <div className="py-16">
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+    <>
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             Nos Produits
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-slate-500">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-teal-100">
             Toute notre gamme de spiruline premium, cultivée en France, sans
             additifs ni OGM.
           </p>
         </div>
+      </section>
 
-        {/* Grid */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg"
-            >
-              {/* Emoji icon */}
-              <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-teal-50 text-4xl">
-                {product.emoji}
+      {/* Grid */}
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => (
+              <div
+                key={product.name}
+                className="card-hover flex flex-col rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-slate-100"
+              >
+                {/* Image area */}
+                <div className="bg-gradient-to-br from-teal-50 to-emerald-50 h-56 flex items-center justify-center">
+                  <span className="text-8xl drop-shadow-sm">{product.emoji}</span>
+                </div>
+
+                {/* Info */}
+                <div className="flex flex-col flex-1 p-6 border-t border-slate-100">
+                  <h2 className="text-lg font-extrabold text-slate-900 uppercase tracking-wide">
+                    {product.name}
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-500">
+                    {product.format} — {product.quantity}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    {product.description}
+                  </p>
+
+                  {/* Price + CTA */}
+                  <div className="mt-auto pt-6 flex items-center justify-between gap-4">
+                    <span className="text-2xl font-extrabold text-teal-600">
+                      {product.price}
+                    </span>
+                    <button
+                      type="button"
+                      className="rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 hover:shadow-md transition-all"
+                    >
+                      Ajouter au panier
+                    </button>
+                  </div>
+                </div>
               </div>
-
-              {/* Info */}
-              <h2 className="mt-5 text-lg font-bold text-slate-900">
-                {product.name}
-              </h2>
-              <p className="mt-1 text-sm text-slate-500">
-                {product.description}
-              </p>
-
-              <div className="mt-3 space-y-1 text-sm text-slate-600">
-                <p>
-                  <span className="font-medium text-slate-700">Format :</span>{" "}
-                  {product.format}
-                </p>
-                <p>
-                  <span className="font-medium text-slate-700">Contenu :</span>{" "}
-                  {product.quantity}
-                </p>
-              </div>
-
-              {/* Price + CTA */}
-              <div className="mt-auto pt-6 flex items-center justify-between gap-4">
-                <span className="text-xl font-bold text-teal-600">
-                  {product.price}
-                </span>
-                <button
-                  type="button"
-                  className="rounded-full bg-teal-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-teal-700"
-                >
-                  Commander
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
