@@ -1,65 +1,162 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Zap, Shield, Leaf, Heart } from "lucide-react";
 
-export default function Home() {
+const features = [
+  {
+    icon: Zap,
+    title: "Énergie Naturelle",
+    description:
+      "Boostez votre vitalité grâce aux protéines et vitamines B de la spiruline.",
+  },
+  {
+    icon: Shield,
+    title: "Immunité Renforcée",
+    description:
+      "Les antioxydants naturels soutiennent vos défenses immunitaires.",
+  },
+  {
+    icon: Leaf,
+    title: "100% Française",
+    description:
+      "Cultivée en France, sans additifs, sans OGM, traçabilité garantie.",
+  },
+  {
+    icon: Heart,
+    title: "Bien-être Quotidien",
+    description: "Une solution naturelle adaptée à tous les modes de vie.",
+  },
+];
+
+const featuredProducts = [
+  {
+    name: "SPIRU ENERGY",
+    format: "Canette 330 ml",
+    price: "2,90€",
+  },
+  {
+    name: "SPIRU GUMMIES",
+    format: "Pot 60 gummies (~150 g)",
+    price: "24,90€",
+  },
+  {
+    name: "SPIRU RAW",
+    format: "Sachet poudre 200 g",
+    price: "19,90€",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* Hero */}
+      <section className="relative bg-gradient-to-br from-teal-500 via-emerald-500 to-teal-700 text-white">
+        <div className="mx-auto max-w-5xl px-6 py-28 text-center">
+          <h1 className="text-6xl font-extrabold tracking-tight sm:text-7xl">
+            Spirulife
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 text-2xl font-semibold text-teal-100 sm:text-3xl">
+            La spiruline française qui booste votre quotidien
           </p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-teal-50">
+            Boissons, gummies, poudre, gélules — découvrez notre gamme complète
+            de spiruline premium produite en France.
+          </p>
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href="/produits"
+              className="rounded-full bg-white px-8 py-3 text-base font-semibold text-teal-700 shadow-md transition hover:bg-teal-50"
+            >
+              Découvrir nos produits
+            </Link>
+            <Link
+              href="/bienfaits"
+              className="rounded-full border-2 border-white px-8 py-3 text-base font-semibold text-white transition hover:bg-white/10"
+            >
+              Les bienfaits
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features */}
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-center text-3xl font-bold text-slate-900">
+            Pourquoi Spirulife ?
+          </h2>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map(({ icon: Icon, title, description }) => (
+              <div
+                key={title}
+                className="flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-100"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal-100 text-teal-600">
+                  <Icon size={28} />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Product preview */}
+      <section className="py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-center text-3xl font-bold text-slate-900">
+            Notre Gamme
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {featuredProducts.map(({ name, format, price }) => (
+              <div
+                key={name}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-teal-50 text-3xl">
+                  🌿
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-slate-900">
+                  {name}
+                </h3>
+                <p className="mt-1 text-sm text-slate-500">{format}</p>
+                <p className="mt-3 text-xl font-semibold text-teal-600">
+                  {price}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/produits"
+              className="inline-block rounded-full bg-teal-600 px-8 py-3 text-sm font-semibold text-white shadow transition hover:bg-teal-700"
+            >
+              Voir tous les produits
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA banner */}
+      <section className="bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-700 py-20 text-white">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <h2 className="text-3xl font-bold">Prêt à essayer la spiruline ?</h2>
+          <p className="mt-4 text-teal-100">
+            Rejoignez des milliers de personnes qui ont adopté la spiruline
+            française Spirulife dans leur quotidien.
+          </p>
+          <Link
+            href="/produits"
+            className="mt-8 inline-block rounded-full bg-white px-10 py-3 text-base font-semibold text-teal-700 shadow-md transition hover:bg-teal-50"
+          >
+            Commander maintenant
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
