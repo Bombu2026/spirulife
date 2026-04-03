@@ -1,160 +1,282 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Zap, Shield, Leaf, Heart } from "lucide-react";
+import { Zap, Shield, Leaf, Heart, Check, ArrowRight } from "lucide-react";
+import { TestimonialCarousel } from "@/components/testimonial-carousel";
+import { LifestyleGallery } from "@/components/lifestyle-gallery";
+import { NewsletterForm } from "@/components/newsletter-form";
 
-const features = [
-  {
-    icon: Zap,
-    title: "Énergie Naturelle",
-    description:
-      "Boostez votre vitalité grâce aux protéines et vitamines B de la spiruline.",
-  },
-  {
-    icon: Shield,
-    title: "Immunité Renforcée",
-    description:
-      "Les antioxydants naturels soutiennent vos défenses immunitaires.",
-  },
-  {
-    icon: Leaf,
-    title: "100% Française",
-    description:
-      "Cultivée en France, sans additifs, sans OGM, traçabilité garantie.",
-  },
-  {
-    icon: Heart,
-    title: "Bien-être Quotidien",
-    description: "Une solution naturelle adaptée à tous les modes de vie.",
-  },
-];
+const products = [
+  { emoji: "🧃", name: "SPIRU ENERGY", price: "2,90€", format: "Canette 330 ml", description: "Boisson énergisante à la spiruline" },
+  { emoji: "🥃", name: "SPIRU SHOT", price: "2,90€", format: "Mini-bouteille 60 ml", description: "Shot concentré boost express" },
+  { emoji: "🍬", name: "SPIRU GUMMIES", price: "24,90€", format: "Pot 60 gummies", description: "Gummies clean saveur naturelle" },
+  { emoji: "🧃", name: "SPIRU STICKS", price: "19,90€", format: "Boîte 20 sticks", description: "Sticks à diluer dose quotidienne" },
+  { emoji: "🥄", name: "SPIRU RAW", price: "19,90€", format: "Sachet 200 g", description: "Poudre pure smoothies & recettes" },
+  { emoji: "💊", name: "SPIRU CAPS", price: "21,90€", format: "Flacon 120 gélules", description: "Gélules prise simple et précise" },
+] as const;
 
-const featuredProducts = [
-  {
-    name: "SPIRU ENERGY",
-    format: "Canette 330 ml",
-    price: "2,90€",
-  },
-  {
-    name: "SPIRU GUMMIES",
-    format: "Pot 60 gummies (~150 g)",
-    price: "24,90€",
-  },
-  {
-    name: "SPIRU RAW",
-    format: "Sachet poudre 200 g",
-    price: "19,90€",
-  },
-];
+const blogPosts = [
+  { image: "/images/smoothie-1.jpg", title: "Smoothie énergie du matin", excerpt: "Commencez la journée avec un smoothie spiruline-banane plein de vitamines.", category: "Recette" },
+  { image: "/images/spirulina-spoon.jpg", title: "Shot spiruline gingembre", excerpt: "Un shot détox puissant pour booster votre immunité en 60 secondes.", category: "Recette" },
+  { image: "/images/spirulina-bowl.jpg", title: "Routine beauté spiruline", excerpt: "Découvrez comment la spiruline sublime votre peau et vos cheveux.", category: "Bien-être" },
+] as const;
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-gradient-to-br from-teal-500 via-emerald-500 to-teal-700 text-white">
-        <div className="mx-auto max-w-5xl px-6 py-28 text-center">
-          <h1 className="text-6xl font-extrabold tracking-tight sm:text-7xl">
-            Spirulife
+      {/* Section 1 — Hero */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <Image
+          src="/images/spiru1.png"
+          alt="Spiruline hero"
+          fill
+          priority
+          className="object-cover brightness-[0.3]"
+        />
+        <div className="relative z-10 w-full text-center text-white px-6 py-20">
+          <div className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-medium mb-8">
+            100% Française | Naturelle | Premium
+          </div>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">
+            Énergie naturelle, made in France
           </h1>
-          <p className="mt-4 text-2xl font-semibold text-teal-100 sm:text-3xl">
-            La spiruline française qui booste votre quotidien
-          </p>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-teal-50">
-            Boissons, gummies, poudre, gélules — découvrez notre gamme complète
-            de spiruline premium produite en France.
+          <p className="mt-6 text-xl text-gray-200 max-w-2xl mx-auto">
+            Boostez votre vitalité avec notre spiruline 100% française et naturelle.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/produits"
-              className="rounded-full bg-white px-8 py-3 text-base font-semibold text-teal-700 shadow-md transition hover:bg-teal-50"
+              className="rounded-full bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 font-semibold shadow-lg transition"
             >
               Découvrir nos produits
             </Link>
             <Link
               href="/bienfaits"
-              className="rounded-full border-2 border-white px-8 py-3 text-base font-semibold text-white transition hover:bg-white/10"
+              className="rounded-full border-2 border-white text-white px-8 py-4 hover:bg-white/10 transition"
             >
-              Les bienfaits
+              En savoir plus sur la spiruline
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center text-3xl font-bold text-slate-900">
-            Pourquoi Spirulife ?
+      {/* Section 2 — Bienfaits */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900">
+            Pourquoi choisir la spiruline ?
           </h2>
+          <p className="mt-4 text-gray-500 text-center">
+            Découvrez les vertus de ce super-aliment reconnu mondialement
+          </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map(({ icon: Icon, title, description }) => (
+            {[
+              { icon: Zap, title: "Énergie naturelle", description: "Réduit la fatigue, stimule votre vitalité grâce aux protéines et vitamines B." },
+              { icon: Shield, title: "Renforce vos défenses", description: "Riche en antioxydants et vitamines pour soutenir votre système immunitaire." },
+              { icon: Heart, title: "Source de protéines", description: "Parfaite pour les sportifs et végétariens, riche en protéines végétales." },
+              { icon: Leaf, title: "Détox et bien-être", description: "Aide à l'élimination des toxines pour un bien-être quotidien." },
+            ].map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-100"
+                className="card-hover bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-100"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal-100 text-teal-600">
-                  <Icon size={28} />
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-50 text-teal-600">
+                  <Icon size={32} />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-slate-900">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                  {description}
-                </p>
+                <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
+                <p className="mt-2 text-gray-500 text-sm leading-relaxed">{description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Product preview */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center text-3xl font-bold text-slate-900">
-            Notre Gamme
+      {/* Section 3 — Gamme Produits */}
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900">
+            Notre Gamme Française
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {featuredProducts.map(({ name, format, price }) => (
+          <p className="mt-4 text-gray-500 text-center max-w-2xl mx-auto">
+            Découvrez nos formats adaptés à tous les styles de vie : boissons, shots, gummies, sticks, poudre ou gélules.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => (
               <div
-                key={name}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
+                key={product.name}
+                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-teal-50 text-3xl">
-                  🌿
+                <div className="bg-teal-50 h-40 flex items-center justify-center">
+                  <span className="text-6xl">{product.emoji}</span>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-slate-900">
-                  {name}
-                </h3>
-                <p className="mt-1 text-sm text-slate-500">{format}</p>
-                <p className="mt-3 text-xl font-semibold text-teal-600">
-                  {price}
-                </p>
+                <div className="p-6">
+                  <h3 className="font-bold text-lg text-slate-900">{product.name}</h3>
+                  <p className="text-sm text-gray-500">{product.format}</p>
+                  <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-xl font-bold text-teal-600">{product.price}</span>
+                    <button
+                      type="button"
+                      className="bg-orange-500 text-white rounded-full px-5 py-2 text-sm hover:bg-orange-600 transition"
+                    >
+                      Ajouter au panier
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/produits"
-              className="inline-block rounded-full bg-teal-600 px-8 py-3 text-sm font-semibold text-white shadow transition hover:bg-teal-700"
+              className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition"
             >
-              Voir tous les produits
+              Voir toute la gamme
+              <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA banner */}
-      <section className="bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-700 py-20 text-white">
-        <div className="mx-auto max-w-2xl px-6 text-center">
-          <h2 className="text-3xl font-bold">Prêt à essayer la spiruline ?</h2>
-          <p className="mt-4 text-teal-100">
-            Rejoignez des milliers de personnes qui ont adopté la spiruline
-            française Spirulife dans leur quotidien.
+      {/* Section 4 — Storytelling Production Locale */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex-1">
+              <Image
+                src="/images/spirulina-green.jpg"
+                alt="Production spiruline française"
+                width={600}
+                height={400}
+                className="rounded-3xl shadow-xl object-cover w-full"
+              />
+            </div>
+            <div className="flex-1">
+              <p className="text-teal-600 uppercase text-sm font-semibold tracking-wider">
+                NOTRE ENGAGEMENT
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900">
+                Notre spiruline, 100% française
+              </h2>
+              <p className="mt-4 text-gray-500 leading-relaxed">
+                Cultivée en eau douce dans nos fermes françaises, notre spiruline est naturelle, bio et traçable de la ferme jusqu'à votre assiette. Chaque étape est contrôlée pour garantir fraîcheur et qualité.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Cultivée en eau douce, contrôle strict de qualité",
+                  "Sans additifs, sans OGM, 100% naturelle",
+                  "Traçabilité garantie de la ferme à l'assiette",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Check size={20} className="text-teal-500 mt-0.5 shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/entreprise"
+                className="mt-8 inline-block bg-teal-600 text-white rounded-full px-6 py-3 font-semibold hover:bg-teal-700 transition"
+              >
+                Découvrir notre production
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5 — Lifestyle Gallery */}
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900">
+            La spiruline dans votre quotidien
+          </h2>
+          <p className="mt-4 text-gray-500 text-center max-w-2xl mx-auto">
+            Boostez votre énergie, votre concentration et votre vitalité, que vous soyez au sport, au bureau ou à la maison.
           </p>
-          <Link
-            href="/produits"
-            className="mt-8 inline-block rounded-full bg-white px-10 py-3 text-base font-semibold text-teal-700 shadow-md transition hover:bg-teal-50"
-          >
-            Commander maintenant
-          </Link>
+          <div className="mt-12">
+            <LifestyleGallery />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6 — Témoignages */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900">
+            Ils ont adopté notre spiruline
+          </h2>
+          <div className="mt-12">
+            <TestimonialCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7 — Blog / Conseils */}
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-slate-900">
+            Nos conseils santé et recettes
+          </h2>
+          <p className="mt-4 text-gray-500 text-center max-w-2xl mx-auto">
+            Découvrez nos recettes et astuces pour intégrer la spiruline facilement dans votre quotidien.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {blogPosts.map((post) => (
+              <div
+                key={post.title}
+                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute top-4 left-4 bg-teal-600 text-white text-xs rounded-full px-3 py-1">
+                    {post.category}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-semibold text-lg text-slate-900">{post.title}</h3>
+                  <p className="text-gray-500 text-sm mt-2">{post.excerpt}</p>
+                  <Link
+                    href="/blog"
+                    className="inline-flex items-center gap-1 text-teal-600 text-sm font-medium mt-4 hover:text-teal-700 transition"
+                  >
+                    Lire la suite
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition"
+            >
+              Voir tous les articles
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8 — Newsletter */}
+      <section className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <h2 className="text-3xl font-bold">
+            Recevez nos astuces et offres exclusives
+          </h2>
+          <p className="mt-4 text-teal-100">
+            Inscrivez-vous à notre newsletter et profitez de conseils santé, recettes et promotions réservées à nos abonnés.
+          </p>
+          <div className="mt-8">
+            <NewsletterForm />
+          </div>
+          <p className="mt-4 text-xs text-teal-200">
+            En vous inscrivant, vous acceptez notre politique de confidentialité.
+          </p>
         </div>
       </section>
     </>

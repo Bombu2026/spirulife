@@ -14,6 +14,10 @@
   --color-primary-700: #0f766e;
   --color-primary-800: #115e59;
   --color-primary-900: #134e4a;
+
+  --color-accent: #f97316;
+  --color-accent-dark: #ea580c;
+  --color-accent-light: #fb923c;
 }
 
 @theme inline {
@@ -32,6 +36,10 @@
   --color-primary-700: var(--color-primary-700);
   --color-primary-800: var(--color-primary-800);
   --color-primary-900: var(--color-primary-900);
+
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
 }
 
 html {
@@ -85,6 +93,83 @@ body {
 .glow-primary:hover,
 .glow-primary:focus-visible {
   box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3);
+}
+
+/* Orange accent CTA buttons */
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-accent:hover {
+  background-color: var(--color-accent-dark);
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+}
+
+.btn-accent-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-accent-outline:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease both;
+}
+
+/* Product image hover */
+.image-hover {
+  transition: transform 0.3s ease;
+}
+.image-hover:hover {
+  transform: scale(1.05);
 }
 
 /* Custom scrollbar */
