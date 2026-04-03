@@ -79,7 +79,7 @@ export default function ProduitsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
+      <section className="texture-powder bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             Nos Produits

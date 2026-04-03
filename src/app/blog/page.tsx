@@ -71,7 +71,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
+      <section className="texture-powder bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h1 className="text-4xl font-extrabold sm:text-5xl">
             Nos Conseils Santé & Recettes
@@ -147,7 +147,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="bg-gradient-to-r from-teal-600 to-emerald-500 py-16 text-white">
+      <section className="texture-powder bg-gradient-to-r from-teal-600 to-emerald-500 py-16 text-white">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <h2 className="text-2xl font-bold">
             Ne manquez aucun article

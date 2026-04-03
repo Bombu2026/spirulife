@@ -52,7 +52,7 @@ export default function BienfaitsPage() {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-600 to-teal-500 px-4 py-24 text-center text-white sm:px-6 lg:px-8">
+      <section className="texture-powder bg-gradient-to-br from-teal-700 via-teal-600 to-teal-500 px-4 py-24 text-center text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-100">
             Votre Super-Aliment Français

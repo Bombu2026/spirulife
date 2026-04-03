@@ -319,7 +319,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 8 — Newsletter */}
-      <section className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
+      <section className="texture-powder bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-500 py-20 text-white">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <h2 className="text-3xl font-bold">
             Recevez nos astuces et offres exclusives

@@ -5,7 +5,7 @@ export default function EspaceProPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-500 py-24 text-white text-center">
+      <section className="texture-powder bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-500 py-24 text-white text-center">
         <div className="mx-auto max-w-3xl px-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-5 py-2 text-sm font-medium mb-8">
             <Building2 size={16} />

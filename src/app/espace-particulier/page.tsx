@@ -4,7 +4,7 @@ export default function EspaceParticulierPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-500 py-24 text-white text-center">
+      <section className="texture-powder bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-500 py-24 text-white text-center">
         <div className="mx-auto max-w-3xl px-6">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
             Mon Espace

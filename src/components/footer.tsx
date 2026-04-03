@@ -53,7 +53,7 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="texture-powder bg-slate-900 text-white">
       {/* Top section */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
