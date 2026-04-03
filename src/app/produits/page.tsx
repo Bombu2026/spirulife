@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Nos Produits — Spirulife",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 type Product = {
-  emoji: string;
+  image: string;
   name: string;
   format: string;
   quantity: string;
@@ -17,7 +18,7 @@ type Product = {
 
 const products: Product[] = [
   {
-    emoji: "🧃",
+    image: "/images/SPIRUENERGY.jpg",
     name: "SPIRU ENERGY",
     format: "Canette",
     quantity: "330 ml",
@@ -25,7 +26,7 @@ const products: Product[] = [
     description: "Boisson ready-to-drink énergisante à la spiruline",
   },
   {
-    emoji: "🥃",
+    image: "/images/SPIRUSHOT.jpg",
     name: "SPIRU SHOT",
     format: "Mini-bouteille",
     quantity: "60 ml",
@@ -33,7 +34,7 @@ const products: Product[] = [
     description: "Shot concentré de spiruline pour un boost express",
   },
   {
-    emoji: "🍬",
+    image: "/images/SPIRUGUMMIES.jpg",
     name: "SPIRU GUMMIES",
     format: "Pot (60 gummies)",
     quantity: "~150 g",
@@ -41,7 +42,7 @@ const products: Product[] = [
     description: "Gummies clean à la spiruline, saveur naturelle",
   },
   {
-    emoji: "🧃",
+    image: "/images/SPIRUSTICKS.jpg",
     name: "SPIRU STICKS",
     format: "Boîte (20 sticks)",
     quantity: "~100 g (5 g / stick)",
@@ -49,7 +50,7 @@ const products: Product[] = [
     description: "Sticks à diluer pour une dose quotidienne pratique",
   },
   {
-    emoji: "🥄",
+    image: "/images/SPIRURAW.jpg",
     name: "SPIRU RAW",
     format: "Sachet / doypack",
     quantity: "200 g",
@@ -57,7 +58,7 @@ const products: Product[] = [
     description: "Poudre de spiruline pure pour smoothies et recettes",
   },
   {
-    emoji: "💊",
+    image: "/images/SPIRUCAPS.jpg",
     name: "SPIRU CAPS",
     format: "Flacon (120 gélules)",
     quantity: "~60 g (500 mg / gélule)",
@@ -92,8 +93,14 @@ export default function ProduitsPage() {
                 className="card-hover flex flex-col rounded-2xl bg-white overflow-hidden shadow-sm ring-1 ring-slate-100"
               >
                 {/* Image area */}
-                <div className="bg-gradient-to-br from-teal-50 to-emerald-50 h-56 flex items-center justify-center">
-                  <span className="text-8xl drop-shadow-sm">{product.emoji}</span>
+                <div className="bg-gradient-to-br from-teal-50 to-emerald-50 h-56 relative">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
 
                 {/* Info */}

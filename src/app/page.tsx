@@ -6,12 +6,12 @@ import { LifestyleGallery } from "@/components/lifestyle-gallery";
 import { NewsletterForm } from "@/components/newsletter-form";
 
 const products = [
-  { emoji: "🧃", name: "SPIRU ENERGY", price: "2,90€", format: "Canette 330 ml", description: "Boisson énergisante à la spiruline" },
-  { emoji: "🥃", name: "SPIRU SHOT", price: "2,90€", format: "Mini-bouteille 60 ml", description: "Shot concentré boost express" },
-  { emoji: "🍬", name: "SPIRU GUMMIES", price: "24,90€", format: "Pot 60 gummies", description: "Gummies clean saveur naturelle" },
-  { emoji: "🧃", name: "SPIRU STICKS", price: "19,90€", format: "Boîte 20 sticks", description: "Sticks à diluer dose quotidienne" },
-  { emoji: "🥄", name: "SPIRU RAW", price: "19,90€", format: "Sachet 200 g", description: "Poudre pure smoothies & recettes" },
-  { emoji: "💊", name: "SPIRU CAPS", price: "21,90€", format: "Flacon 120 gélules", description: "Gélules prise simple et précise" },
+  { image: "/images/SPIRUENERGY.jpg", name: "SPIRU ENERGY", price: "2,90€", format: "Canette 330 ml", description: "Boisson énergisante à la spiruline" },
+  { image: "/images/SPIRUSHOT.jpg", name: "SPIRU SHOT", price: "2,90€", format: "Mini-bouteille 60 ml", description: "Shot concentré boost express" },
+  { image: "/images/SPIRUGUMMIES.jpg", name: "SPIRU GUMMIES", price: "24,90€", format: "Pot 60 gummies", description: "Gummies clean saveur naturelle" },
+  { image: "/images/SPIRUSTICKS.jpg", name: "SPIRU STICKS", price: "19,90€", format: "Boîte 20 sticks", description: "Sticks à diluer dose quotidienne" },
+  { image: "/images/SPIRURAW.jpg", name: "SPIRU RAW", price: "19,90€", format: "Sachet 200 g", description: "Poudre pure smoothies & recettes" },
+  { image: "/images/SPIRUCAPS.jpg", name: "SPIRU CAPS", price: "21,90€", format: "Flacon 120 gélules", description: "Gélules prise simple et précise" },
 ] as const;
 
 const blogPosts = [
@@ -105,8 +105,14 @@ export default function HomePage() {
                 key={product.name}
                 className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-100"
               >
-                <div className="bg-gradient-to-br from-teal-50 to-emerald-50 h-56 flex items-center justify-center relative">
-                  <span className="text-8xl drop-shadow-sm">{product.emoji}</span>
+                <div className="bg-gradient-to-br from-teal-50 to-emerald-50 h-56 relative">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
                 <div className="p-6 border-t border-slate-100">
                   <h3 className="font-extrabold text-lg text-slate-900 uppercase tracking-wide">{product.name}</h3>
